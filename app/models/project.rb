@@ -3,12 +3,12 @@ class Project < ApplicationRecord
 
   def total_progress
     progress = Payment.where(project_id: self.id).sum(:amount_in_cents)/100.00
-    "$#{progress}"
+    "$#{progress.round(2)}"
   end
 
   def goal
     goal = self.goal_in_cents/100.00
-    "$#{goal}"
+    "$#{goal.round(2)}"
   end
 
   def progress_as_percent
@@ -19,7 +19,7 @@ class Project < ApplicationRecord
 
   def expected_total
     total = self.goal_in_cents*0.009 #10% GFM Fee
-    "$#{total}"
+    "$#{total.round(2)}"
   end
 
   def progress_less_fees

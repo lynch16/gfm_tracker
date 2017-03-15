@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project = Project.find(params[:id])
     if @project.update(project_params)
       redirect_to :root, notice: 'Project updated.'
     else
@@ -36,6 +37,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :goal_in_cents, :progress_in_cents)
+    params.require(:project).permit(:name, :goal_in_cents, :progress_in_cents, :completed)
   end
 end
