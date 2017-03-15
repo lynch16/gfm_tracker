@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Go Fund Me Tracker</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id="navigation">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Projects", projects_path, :class => 'navbar-link'  %> </li>
+                <li><%= link_to "Payments", payments_path, :class => 'navbar-link'  %> </li>
+                <li><%= link_to "New Project", new_project_path, :class => 'navbar-link'  %> </li>
+                <li><%= link_to "New Payment", new_payment_path, :class => 'navbar-link'  %> </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <%= yield %>
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<table class='table table-bordered table-striped'>
+  <thead>
+    <th>Name</th>
+    <th>Goal</th>
+    <th>Expected Total (less fees)</th>
+    <th>Progress</th>
+    <th>Progress after fees</th>
+    <th>Percent Complete</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.goal %></td>
+        <td><%= project.expected_total %></td>
+        <td><%= project.total_progress %></td>
+        <td><%= project.progress_less_fees %></td>
+        <td><%= project.progress_as_percent %>%</td>
+        <td><%= link_to 'Edit', edit_project_path(project)%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

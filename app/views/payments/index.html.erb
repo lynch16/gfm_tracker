@@ -1,0 +1,18 @@
+<table class='table table-bordered table-striped'>
+  <thead>
+    <th>ID</th>
+    <th>Project</th>
+    <th>Amount</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.id %></td>
+        <td><%= payment.project.name %></td>
+        <td>$<%= payment.amount_in_cents/100.0 %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment)%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<%= form_for @payment do |f| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label 'Workshop' %>
+    <%= f.select :project_id, Project.all.collect{|p| [p.name, p.id]}, {include_blank: 'Select project..'} %>
+  </div>
+
+  <div class="form-group member">
+    <%= f.label 'Amount In Cents' %>
+    <%= f.text_field :amount_in_cents%>
+  </div>
+
+  <div class="actions">
+   <%= f.submit %>
+ </div>
+
+<% end %>
